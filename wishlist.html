@@ -1,0 +1,346 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+    <title>Document</title>
+    <style>
+        html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+ 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  padding-bottom: 100px;
+}
+
+.left-column {
+  width: 45%;
+  position: relative;
+  margin-top: 60px;
+  margin-left: 120px;
+  padding-right: 0;
+}
+ 
+.right-column {
+  width: 35%;
+  margin-top: 60px;
+}
+
+.left-column img {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+ 
+.left-column img.active {
+  opacity: 1;
+}
+
+
+.product-description {
+  border-bottom: 1px solid #E1E8EE;
+  margin-bottom: 20px;
+}
+.product-description span {
+  font-size: 12px;
+  color: #358ED7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.product-description h1 {
+  font-weight: 300;
+  font-size: 52px;
+  color:whitesmoke;
+  letter-spacing: -2px;
+}
+.product-description p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #86939E;
+  line-height: 24px;
+}
+
+
+
+.product-color {
+  margin-bottom: 30px;
+  color: #358ED7;
+}
+ 
+.color-choose div {
+  display: inline-block;
+}
+ 
+.color-choose input[type=&amp;quot;radio&amp;quot;] {
+  display: none;
+}
+ 
+.color-choose input[type=&amp;quot;radio&amp;quot;] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+}
+ 
+.color-choose input[type=] + label span {
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+}
+ 
+.color-choose input[type=&amp,quot;radio&amp;quot;]#red + label span {
+  background-color: #C91524;
+}
+.color-choose input[type=&amp,quot;radio&amp;quot;]#blue + label span {
+  background-color: #314780;
+}
+.color-choose input[type=&amp;quot;radio&amp;quot;]#black + label span {
+  background-color: #323232;
+}
+ 
+.color-choose input[type=&amp;quot;radio&amp;quot;]:checked + label span {
+  background-image: url(images/check-icn.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+}
+ 
+.product-price span {
+  font-size: 26px;
+  font-weight: 300;
+  color: whitesmoke;
+  margin-right: 20px;
+}
+ 
+.cart-btn {
+  display: inline-block;
+  background-color:#00cbfe;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all .5s;
+}
+.cart-btn:hover {
+  background-color: #64af3d;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark trn">
+            <div class="container">
+                <h1 class="Logo">TechVille</h1>
+              <!-- <a class="navbar-brand" href="#">
+                    <img src="http://placehold.it/150x50?text=Logo" alt="">
+                  </a> -->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#category">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Wishlist</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="signup.html">Signup</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">What's new</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                  </li>
+                  <!-- <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form> -->
+                </ul>
+              </div>
+            </div>
+          </nav>  
+    </header>
+
+
+    <!--Section: Block Content-->
+    
+
+    <main class="container">
+ 
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+          <img data-image="" class="active" src="Images/slideshow6.jpg" alt="">
+          <!-- <img data-image="blue" src="images/blue.png" alt="">
+          <img data-image="red" class="active" src="images/red.png" alt=""> -->
+        </div>
+       
+       
+        <!-- Right Column -->
+        <div class="right-column">
+       
+          <!-- Product Description -->
+          <div class="product-description">
+            <span>Tablet</span>
+            <h1>Apple IPad 7Gen</h1>
+            <p>Fingerprint (front-mounted), accelerometer, gyro, compass, barometer
+                Siri natural language commands and dictation</p>
+          </div>
+       
+          <!-- Product Configuration --> 
+          <div class="product-configuration">
+       
+            <!-- Product Color -->
+            <div class="product-color">
+              <span>Color</span>
+       
+              <div class="color-choose">
+                <div>
+                  <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                  <label for="red"><span></span></label>
+                </div>
+                <div>
+                  <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                  <label for="blue"><span></span></label>
+                </div>
+                <div>
+                  <input data-image="black" type="radio" id="black" name="color" value="black">
+                  <label for="black"><span></span></label>
+                </div>
+              </div>
+       
+            </div>
+       
+            <!-- Cable Configuration -->
+            <!-- <div class="cable-config">
+              <span>Cable configuration</span>
+       
+              <div class="cable-choose">
+                <button>Straight</button>
+                <button>Coiled</button>
+                <button>Long-coiled</button>
+              </div>
+       
+              <a href="#">How to configurate your headphones</a>
+            </div> -->
+          </div>
+       
+          <!-- Product Pricing -->
+          <div class="product-price">
+            <span>$329</span>
+            <a href="#" class="cart-btn">Add to cart</a>
+          </div>
+        </div>
+      </main>
+
+
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3>TechVille</h3>
+
+                <p class="footer-links">
+                    <a href="#">Home</a>
+                    ·
+                    <a href="#">Blog</a>
+                    ·
+                    <a href="#">Pricing</a>
+                    ·
+                    <a href="#">About</a>
+                    ·
+                    <a href="#">Faq</a>
+                    ·
+                    <a href="#">Contact</a>
+                </p>
+
+                <p class="footer-company-name">techville &copy; 2015</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>21 Revolution Street</span> Paris, France</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+1 555 123456</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="/cdn-cgi/l/email-protection#dcafa9acacb3aea89cbfb3b1acbdb2a5f2bfb3b1"><span class="__cf_email__" data-cfemail="33404643435c414773505c5e43525d4a1d505c5e">[email&#160;protected]</span></a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>About the company</span>
+                    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#"><img src="Images/facebook.png" class="foot" alt=""></a>
+                    <a href="#"><img src="Images/twitter1.png" class="foot" alt=""></a>
+                    <a href="#"><img src="Images/linkedin.png" class="foot" alt=""></a>
+                    <a href="#"><img src="Images/github.png" class="foot" alt=""></a>
+                    <a href="#"><img src="Images/instagram.png" class="foot" alt=""></a>                    
+
+                </div>
+
+            </div>
+
+        </footer>
+
+
+</body>
+</html>
+
+
+
+
+

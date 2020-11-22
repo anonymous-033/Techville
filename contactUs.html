@@ -1,0 +1,257 @@
+<html lang="en">
+<head>
+    <meta name="description" content="Use a free Google Firebase Database to allow visitors to leave comments on your web pages. From https://AlanSimpson.me/firebase">      
+    <meta name="author" content="Nawme">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/contactus.css">
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <title>User Comments</title>
+    
+</head>
+
+
+
+<body>
+
+
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark trn">
+        <div class="container">
+            <h1 class="Logo">TechVille</h1>
+          <!-- <a class="navbar-brand" href="#">
+                <img src="http://placehold.it/150x50?text=Logo" alt="">
+              </a> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                      <span class="sr-only">(current)</span>
+                    </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="Laptop.html">Laptop</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Desktop</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="notun.html">Tablet</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Camera</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Smart TV</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Headphones</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Smart Watch</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Speaker</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Accessories</a>
+                </div>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#category">Categories</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="wishlist.html">Wishlist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup.html">Signup</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="#WhatsNew">What's new</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactUs.html">Contact</a>
+              </li>
+              <!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form> -->
+            </ul>
+          </div>
+        </div>
+      </nav>  
+  </header>
+
+
+
+
+
+
+
+    <!-- <section class="showcase">
+        <img src="Images/contact-us.jpg" alt="Picture">
+        <div class="overlay">
+          <h2>Background Overlay</h2>
+          <p>
+            Hello Everyone , this is just simple overlay , without using background-image property in css
+          </p>
+        </div>
+      </section> -->
+
+    <div id="allcomments">
+        <h3>Comments</h3>
+        <!-- We will show past comments in the list below-->
+        <ul id="pastcomments"></ul>
+        <!-- This is the form for entering a new comment -->
+        <form id="newcomment">
+            <label for="tbName">First Name or Initials</label>
+            <br>
+            <input id="tbName" type="text" maxlength="20" required>
+            <br>
+            <label for="txComment">Your Comment / Question</label>
+            <br>
+            <textarea id="txComment" maxlength="4096" required style="width:96%"></textarea>
+            <br>
+            <input type="submit" id="btnSubmitComment" value="Submit Comment">
+        </form>
+    </div>
+
+
+
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+          <h3>TechVille</h3>
+
+          <p class="footer-links">
+              <a href="#">Home</a>
+              ·
+              <a href="#">Blog</a>
+              ·
+              <a href="#">Pricing</a>
+              ·
+              <a href="#">About</a>
+              ·
+              <a href="#">Faq</a>
+              ·
+              <a href="#">Contact</a>
+          </p>
+
+          <p class="footer-company-name">techville &copy; 2015</p>
+      </div>
+
+      <div class="footer-center">
+
+          <div>
+              <i class="fa fa-map-marker"></i>
+              <p><span>21 Revolution Street</span> Paris, France</p>
+          </div>
+
+          <div>
+              <i class="fa fa-phone"></i>
+              <p>+1 555 123456</p>
+          </div>
+
+          <div>
+              <i class="fa fa-envelope"></i>
+              <p><a href="/cdn-cgi/l/email-protection#dcafa9acacb3aea89cbfb3b1acbdb2a5f2bfb3b1"><span class="__cf_email__" data-cfemail="33404643435c414773505c5e43525d4a1d505c5e">[email&#160;protected]</span></a></p>
+          </div>
+
+      </div>
+
+      <div class="footer-right">
+
+          <p class="footer-company-about">
+              <span>About the company</span>
+              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+          </p>
+
+          <div class="footer-icons">
+
+              <a href="#"><img src="Images/facebook.png" class="foot" alt=""></a>
+              <a href="#"><img src="Images/twitter1.png" class="foot" alt=""></a>
+              <a href="#"><img src="Images/linkedin.png" class="foot" alt=""></a>
+              <a href="#"><img src="Images/github.png" class="foot" alt=""></a>
+              <a href="#"><img src="Images/instagram.png" class="foot" alt=""></a>                    
+
+          </div>
+
+      </div>
+
+  </footer>
+    <!-- Connection to Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBkRc9YMYvQxDdpQ2t5XCgLizil1ZWqgs4",
+    authDomain: "commentsdemo-ac531.firebaseapp.com",
+    databaseURL: "https://commentsdemo-ac531.firebaseio.com",
+    projectId: "commentsdemo-ac531",
+    storageBucket: "commentsdemo-ac531.appspot.com",
+    messagingSenderId: "837205823567",
+    appId: "1:837205823567:web:828d5be7eb629d35459a3a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+        //Rootref is the whole database.
+        const rootRef = firebase.database().ref();
+        //commentsRef is just the pageCountsNode
+        const commentsRef = rootRef.child('comments');
+        //Listen for click on Submit Comment button, and post comment.
+        document.getElementById("btnSubmitComment").addEventListener("click", function () {
+            //Replace line breaks in comment with br tags.
+            var newcomment = document.getElementById('txComment').value.replace(/\n/g, "<br>");
+            //Define a new, keyed post.
+            var newPostRef = commentsRef.push();
+            //Fill tne new keyed post with data
+            newPostRef.set({
+                name: document.getElementById('tbName').value.trim(),
+                comment: newcomment.trim(),
+                frompage: location.pathname,
+                when: firebase.database.ServerValue.TIMESTAMP
+            });
+        });
+
+        function showpastcomments() {
+            var showat = document.getElementById('pastcomments');
+            //Get comments whose from page equals this page's pathname.
+            var commentsRef = firebase.database().ref('comments/').orderByChild('frompage').equalTo(location.pathname);
+            commentsRef.once('value', function (snapshot) {
+                snapshot.forEach(function (itemSnapshot) {
+                    //Get the object for one snapshot
+                    var itemData = itemSnapshot.val();
+                    var comment = itemData.comment;
+                    var name = itemData.name;
+                    var when = new Date(itemData.when).toLocaleDateString("en-us");
+                    showat.innerHTML += "<li>" + comment + "<span> -- " + name + " (" + when +
+                        ")</span></li>";
+                })
+            })
+        }
+        //Called when page first opens and also after Submit button click to show all comments for this page.
+        showpastcomments()
+    </script>
+</body>
+</html>
