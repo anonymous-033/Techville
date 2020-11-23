@@ -11,11 +11,79 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/contactus.css">
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/scrollreveal@4"></script>
     <title>User Comments</title>
+
+    <style>
+
+/* Just come optional fonts and characters for styling */
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Pacifico|Source+Code+Pro');
+        /* FontAwesome cdn fonts */
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        /* Sample styling for comments and commenting controls */
+        #allcomments {
+            width: 90%;
+            margin: 1em 0 4em 1em;
+            padding: 1%;
+            border: solid 1px gray;
+            border-radius: 3px;
+            box-shadow: 2px 2px 2px silver;
+        }
+
+        ul#pastcomments {
+            list-style-type: none;
+        }
+
+        ul#pastcomments li:before {
+            font-family: FontAwesome;
+            content: "\f086";
+            font-size: 24pt;
+            color: gray;
+            margin-left: -42px;
+            padding-right: 10px;
+            position: relative;
+            top: 8px;
+        }
+
+        ul#pastcomments li {
+            margin: 0 0 2em 0;
+            padding: 10px;
+        }
+
+        ul#pastcomments li span {
+            font-size: 80%;
+            color: gray;
+            font-style: italic;
+        }
+
+        form#newcomment textarea {
+            height: 72px;
+        }
+
+        form#newcomment label {
+            display: inline-block;
+            margin: 1em 0 0 0;
+        }
+
+        form#newcomment textarea,
+        form#newcomment input[type="text"] {
+            margin-top: 0;
+        }
+
+    </style>
     
 </head>
 
@@ -37,10 +105,8 @@
               </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home
-                      <span class="sr-only">(current)</span>
-                    </a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,12 +135,8 @@
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#category">Categories</a>
               </li> -->
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="wishlist.html">Wishlist</a>
-              </li>
+              
+              
               <li class="nav-item">
                 <a class="nav-link" href="signup.html">Signup</a>
               </li>
@@ -84,8 +146,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#WhatsNew">What's new</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contactUs.html">Contact</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Contact Us
+                  <span class="sr-only">(current)</span>
+                    
+                </a>
               </li>
               <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -97,8 +162,24 @@
       </nav>  
   </header>
 
-
-
+  <div id="allcomments">
+    <h3>Comments</h3>
+    <!-- We will show past comments in the list below-->
+    <ul id="pastcomments"></ul>
+    <!-- This is the form for entering a new comment -->
+    <form id="newcomment">
+        <label for="tbName">First Name or Initials</label>
+        <br>
+        <input id="tbName" type="text" maxlength="20" required>
+        <br>
+        <label for="txComment">Your Comment / Question</label>
+        <br>
+        <textarea id="txComment" maxlength="4096" required style="width:96%"></textarea>
+        <br>
+        <input type="submit" id="btnSubmitComment" value="Submit Comment">
+    </form>
+</div>
+<!-- Connection to Firebase -->
 
 
 
@@ -113,24 +194,7 @@
         </div>
       </section> -->
 
-    <div id="allcomments">
-        <h3>Comments</h3>
-        <!-- We will show past comments in the list below-->
-        <ul id="pastcomments"></ul>
-        <!-- This is the form for entering a new comment -->
-        <form id="newcomment">
-            <label for="tbName">First Name or Initials</label>
-            <br>
-            <input id="tbName" type="text" maxlength="20" required>
-            <br>
-            <label for="txComment">Your Comment / Question</label>
-            <br>
-            <textarea id="txComment" maxlength="4096" required style="width:96%"></textarea>
-            <br>
-            <input type="submit" id="btnSubmitComment" value="Submit Comment">
-        </form>
-    </div>
-
+    
 
 
     <footer class="footer-distributed">
@@ -195,63 +259,59 @@
       </div>
 
   </footer>
-    <!-- Connection to Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
 <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBkRc9YMYvQxDdpQ2t5XCgLizil1ZWqgs4",
-    authDomain: "commentsdemo-ac531.firebaseapp.com",
-    databaseURL: "https://commentsdemo-ac531.firebaseio.com",
-    projectId: "commentsdemo-ac531",
-    storageBucket: "commentsdemo-ac531.appspot.com",
-    messagingSenderId: "837205823567",
-    appId: "1:837205823567:web:828d5be7eb629d35459a3a"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-        //Rootref is the whole database.
-        const rootRef = firebase.database().ref();
-        //commentsRef is just the pageCountsNode
-        const commentsRef = rootRef.child('comments');
-        //Listen for click on Submit Comment button, and post comment.
-        document.getElementById("btnSubmitComment").addEventListener("click", function () {
-            //Replace line breaks in comment with br tags.
-            var newcomment = document.getElementById('txComment').value.replace(/\n/g, "<br>");
-            //Define a new, keyed post.
-            var newPostRef = commentsRef.push();
-            //Fill tne new keyed post with data
-            newPostRef.set({
-                name: document.getElementById('tbName').value.trim(),
-                comment: newcomment.trim(),
-                frompage: location.pathname,
-                when: firebase.database.ServerValue.TIMESTAMP
-            });
+    // Initialize Firebase - be sure to use your own code, this connects to my database.
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBqKX1_Jmhm809kqW3SBifAjmVfzLfC-0w",
+        authDomain: "comments2-a5f2e.firebaseapp.com",
+        databaseURL: "https://comments2-a5f2e.firebaseio.com",
+        projectId: "comments2-a5f2e",
+        storageBucket: "comments2-a5f2e.appspot.com",
+        messagingSenderId: "617710094361"
+    };
+    firebase.initializeApp(config);
+    //Rootref is the whole database.
+    const rootRef = firebase.database().ref();
+    //commentsRef is just the pageCountsNode
+    const commentsRef = rootRef.child('comments');
+    //Listen for click on Submit Comment button, and post comment.
+    document.getElementById("btnSubmitComment").addEventListener("click", function () {
+        //Replace line breaks in comment with br tags.
+        var newcomment = document.getElementById('txComment').value.replace(/\n/g, "<br>");
+        //Define a new, keyed post.
+        var newPostRef = commentsRef.push();
+        //Fill tne new keyed post with data
+        newPostRef.set({
+            name: document.getElementById('tbName').value.trim(),
+            comment: newcomment.trim(),
+            frompage: location.pathname,
+            when: firebase.database.ServerValue.TIMESTAMP
         });
+    });
 
-        function showpastcomments() {
-            var showat = document.getElementById('pastcomments');
-            //Get comments whose from page equals this page's pathname.
-            var commentsRef = firebase.database().ref('comments/').orderByChild('frompage').equalTo(location.pathname);
-            commentsRef.once('value', function (snapshot) {
-                snapshot.forEach(function (itemSnapshot) {
-                    //Get the object for one snapshot
-                    var itemData = itemSnapshot.val();
-                    var comment = itemData.comment;
-                    var name = itemData.name;
-                    var when = new Date(itemData.when).toLocaleDateString("en-us");
-                    showat.innerHTML += "<li>" + comment + "<span> -- " + name + " (" + when +
-                        ")</span></li>";
-                })
+    function showpastcomments() {
+        var showat = document.getElementById('pastcomments');
+        //Get comments whose from page equals this page's pathname.
+        var commentsRef = firebase.database().ref('comments/').orderByChild('frompage').equalTo(location.pathname);
+        commentsRef.once('value', function (snapshot) {
+            snapshot.forEach(function (itemSnapshot) {
+                //Get the object for one snapshot
+                var itemData = itemSnapshot.val();
+                var comment = itemData.comment;
+                var name = itemData.name;
+                var when = new Date(itemData.when).toLocaleDateString("en-us");
+                showat.innerHTML += "<li>" + comment + "<span> -- " + name + " (" + when +
+                    ")</span></li>";
             })
-        }
-        //Called when page first opens and also after Submit button click to show all comments for this page.
-        showpastcomments()
-    </script>
+        })
+    }
+    //Called when page first opens and also after Submit button click to show all comments for this page.
+    showpastcomments()
+</script>
+
 </body>
 </html>

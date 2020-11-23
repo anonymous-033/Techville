@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #1B1B1B;
-    font-family: 'Open Sans', sans-serif;
+    font-family:  'Roboto', sans-serif;
     /* background-image: url('Images/apple.jpg'); */
 }
 
@@ -71,7 +71,7 @@ body {
         }
 
         ul#pastcomments li:before {
-            font-family: FontAwesome;
+            font-family:  'Roboto', sans-serif;
             content: "\f086";
             font-size: 24pt;
             color: gray;
